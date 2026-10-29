@@ -1,0 +1,83 @@
+/* Cozy storybook panels over a pixel canvas: cream paper, walnut borders, leaf and lantern accents. */
+:root {
+  --paper: #f7eedb;
+  --paper-deep: #ecdfc2;
+  --walnut: #7a5a3a;
+  --walnut-deep: #4e3826;
+  --ink: #4a3424;
+  --ink-soft: #8a6e54;
+  --leaf: #5b9852;
+  --leaf-deep: #3f7a3e;
+  --lantern: #e8873a;
+  --rain: #5a8ad0;
+  --rose: #c0564f;
+  --night: #1a2236;
+  --font: "Nunito", "Noto Sans Thai", "Noto Sans SC", ui-rounded, "Trebuchet MS", system-ui, sans-serif;
+  --pixel: "Pixelify Sans", "Nunito", ui-monospace, monospace;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--night);
+  color: var(--ink);
+  font-family: var(--font);
+  font-weight: 700;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--lantern);
+  outline-offset: 2px;
+}
+
+.panel {
+  background: var(--paper);
+  border: 3px solid var(--walnut);
+  border-radius: 10px;
+  box-shadow: 0 4px 0 var(--walnut-deep), 0 10px 24px rgba(10, 20, 40, .35);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 16px;
+  font-weight: 800;
+  background: var(--paper);
+  border: 2px solid var(--walnut);
+  border-radius: 8px;
+  box-shadow: 0 3px 0 var(--walnut-deep);
+  transition: transform .08s ease;
+}
+
+.btn:hover { background: #fff7e6; }
+.btn:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--walnut-deep); }
+.btn.is-on { background: var(--leaf); color: #fff; border-color: var(--leaf-deep); box-shadow: 0 3px 0 #2c5a2c; }
+.btn.is-danger.is-on { background: var(--rose); border-color: #8e3b36; box-shadow: 0 3px 0 #6e2b26; }
+.btn.is-primary { background: var(--leaf); color: #fff; border-color: var(--leaf-deep); box-shadow: 0 3px 0 #2c5a2c; }
+.btn:disabled { opacity: .45; cursor: default; transform: none; }
+
+kbd {
+  font-family: var(--pixel);
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.pixel { image-rendering: pixelated; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
